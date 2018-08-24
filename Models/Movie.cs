@@ -7,7 +7,7 @@ namespace MovieWebApplication.Models
 {
     public class Movie
     {
-        public int MovieId
+        public int MovieID
         {
             get; set;
         }

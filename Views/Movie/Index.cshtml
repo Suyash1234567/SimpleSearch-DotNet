@@ -1,56 +1,62 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers;
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model MovieViewModel
+<h1>Movie Details</h1>
+<Partial name="_PartialView" , model="Model.MovieList" />
 
-@Html.Partial("_PartialView");
-@{
-    ViewData["Title"] = "Index";
-}
+<div>
+    <form method="post" class="form-group" id="MovieSearch">
+        <span class="form-inline">
+            Search a movie by its id :
+            <input type="number" asp-for="@Model.MovieID" class="form-control" />
+        </span>
+        <label>
+        </label>
+        <br />
 
-<h2>Movie List</h2>
-
-
-<form method="post" id="Movielist">
-    <div class="form-group">
-        <label for="input">Search a movie by its ID:</label>
-        <input type="text" name="Search">
-    </div>
-</form>
-
-<input type="button" value="Submit" class="btn btn-default" data-attr="submit"></input>
-
+    </form>
+    <input type="submit" value="submit" class="btn btn-primary" data-attr="submit" />
+</div>
 <script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-<link href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-1.12.3.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script>
     $('[data-attr="submit"]').on('click', function () {
         $.ajax(
             {
                 url: "/Movie/Index",
                 type: "POST",
-                data: $('#MovieList').serialize(),
+                data: $('#MovieSearch').serialize(),
+
                 success: function (response) {
-                    var tr;
-                    console.log(response);
-                    for (var i = 0; i < response.length; i++) {
+                    var tr="";
+                    var res = JSON.stringify(response);
+                    var myMovie = JSON.parse(res)["movieList"][0];
+                    console.log(res);
+                    //console.log(JSON.parse(res)["movieList"][0].movieName)
+                    if (myMovie === undefined) { alert("Id does not exist"); }
+                    else {
                         tr = tr + "<tr>";
-                        tr = tr + "<td>" + response[i].MovieId + "</td>";
-                        tr = tr + "<td>" + response[i].MovieName + "</td>";
-                        tr = tr + "<td>" + response[i].ReleaseYear + "</td>";
-                        tr = tr + "<td>" + response[i].Genre + "</td>";
+                        tr = tr + "<td>" + myMovie.movieID + "</td>";
+                        tr = tr + "<td>" + myMovie.movieName + "</td>";
+                        tr = tr + "<td>" + myMovie.releaseYear + "</td>";
+                        tr = tr + "<td>" + myMovie.genre + "</td>";
                         tr = tr + "</tr>";
+                        $('#trData').html(tr);
                     }
-                    $('#MovieList').append(tr);
-                    tblFormate();
+                    //tblFormate();
                 },
                 error: function (err) {
                     console.log(err);
                 }
             });
 
-        function tblFormate() {
-            <script src="//code.jquery.com/jquery-1.12.3.js"></script>
-            <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    });
 
+        function tblFormate() {
             // Convert normal table to Ajax table with default design
             var table = $('#MovieList').DataTable(
                 {
@@ -66,7 +72,4 @@
                 });
             });
         }
-
-
-    });
 </script>

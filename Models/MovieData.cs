@@ -11,11 +11,11 @@ namespace MovieWebApplication.Models
         {
             List<Movie> movie = new List<Movie>
             {
-            new Movie { MovieId =1, MovieName ="Titanic", ReleaseYear ="1998" ,Genre ="Romance"},
-            new Movie { MovieId =2, MovieName ="Forest Gump", ReleaseYear ="1995",Genre ="Fiction"  },
-            new Movie { MovieId =3, MovieName ="Bahubali", ReleaseYear ="2017" ,Genre ="Fiction" },
-            new Movie { MovieId =4, MovieName ="The Dark Night", ReleaseYear ="2007",Genre ="Action"  },
-            new Movie { MovieId =5, MovieName ="The Shawshank Redemption", ReleaseYear ="1988",Genre ="Fiction"  }
+            new Movie { MovieID =1, MovieName ="Titanic", ReleaseYear ="1998" ,Genre ="Romance"},
+            new Movie { MovieID =2, MovieName ="Forest Gump", ReleaseYear ="1995",Genre ="Fiction"  },
+            new Movie { MovieID =3, MovieName ="Bahubali", ReleaseYear ="2017" ,Genre ="Fiction" },
+            new Movie { MovieID =4, MovieName ="The Dark Night", ReleaseYear ="2007",Genre ="Action"  },
+            new Movie { MovieID =5, MovieName ="The Shawshank Redemption", ReleaseYear ="1988",Genre ="Fiction"  }
             };
             return movie;
         }

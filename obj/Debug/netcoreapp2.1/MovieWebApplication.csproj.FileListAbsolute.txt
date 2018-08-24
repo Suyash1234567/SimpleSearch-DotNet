@@ -31,3 +31,4 @@ C:\Users\Vivek\Desktop\DotNet\MovieWebApplication\MovieWebApplication\obj\Debug\
 C:\Users\Vivek\Desktop\DotNet\MovieWebApplication\MovieWebApplication\obj\Debug\netcoreapp2.1\MovieWebApplication.Views.pdb
 C:\Users\Vivek\Desktop\DotNet\MovieWebApplication\MovieWebApplication\obj\Debug\netcoreapp2.1\MovieWebApplication.csproj.CopyComplete
 C:\Users\Vivek\Desktop\DotNet\MovieWebApplication\MovieWebApplication\obj\Debug\netcoreapp2.1\Razor\Views\Movie\_PartialView.g.cshtml.cs
+C:\Users\Vivek\Desktop\DotNet\MovieWebApplication\MovieWebApplication\obj\Debug\netcoreapp2.1\MovieWebApplication.csprojAssemblyReference.cache
